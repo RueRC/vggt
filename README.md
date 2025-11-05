@@ -6,4 +6,5 @@ singularity exec \
   /bin/bash
 
 # activate Singularity
-cd /scratch/rc5832/vggt
+cd /scratch/rc5832/vggt/code
+
