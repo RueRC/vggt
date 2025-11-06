@@ -7,7 +7,10 @@ singularity exec \
 
 # activate Singularity
 cd /scratch/rc5832/vggt/code
+
 run-vggt.sbatch
+
 run-eval.sbatch
+
 python collect_pose_eval_results.py --root /scratch/rc5832/vggt_results
 
