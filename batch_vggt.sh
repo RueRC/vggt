@@ -19,7 +19,7 @@ mkdir -p "$LOGDIR"
 
 find "$ROOT" -type d -name images -print0 | while IFS= read -r -d '' imgdir; do
   scene_dir="$(dirname "$imgdir")"
-  out="$/scratch/rc5832/vggt/sparse_vggt"
+  out="/scratch/rc5832/vggt/sparse_vggt"
 
   if [[ -s "${out}/images.bin" ]]; then
     echo "[SKIP] $scene_dir (already has sparse_vggt)"
