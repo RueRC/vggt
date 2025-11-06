@@ -57,6 +57,8 @@ def parse_args():
     #     help="Uniformly subsample images to this count; always keep the first image."
     # )
 
+    parser.add_argument("--out_dir", type=str, default=None, help="Output directory for COLMAP files")
+
     return parser.parse_args()
 
 
@@ -200,8 +202,12 @@ def demo_fn(args):
         shared_camera=shared_camera,
     )
 
-    print(f"Saving reconstruction to {args.scene_dir}/sparse_vggt")
-    sparse_reconstruction_dir = os.path.join(args.scene_dir, "sparse_vggt")
+    # print(f"Saving reconstruction to {args.scene_dir}/sparse_vggt")
+    # sparse_reconstruction_dir = os.path.join(args.scene_dir, "sparse_vggt")
+    # os.makedirs(sparse_reconstruction_dir, exist_ok=True)
+    # reconstruction.write(sparse_reconstruction_dir)
+    sparse_reconstruction_dir = args.out_dir if args.out_dir else os.path.join(args.scene_dir, "sparse_vggt")
+    print(f"Saving reconstruction to {sparse_reconstruction_dir}")
     os.makedirs(sparse_reconstruction_dir, exist_ok=True)
     reconstruction.write(sparse_reconstruction_dir)
 
